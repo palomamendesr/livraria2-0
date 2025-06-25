@@ -1,0 +1,36 @@
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.sticky-header .title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.sticky-header .spacer {
+  flex: 1 1 auto;
+}
+
+.sticky-header .desktop-menu {
+  display: none;
+}
+
+.sticky-header .mobile-menu {
+  display: inline-flex;
+}
+
+/* Responsivo para telas maiores que 768px */
+@media (min-width: 768px) {
+  .sticky-header .desktop-menu {
+    display: flex;
+    gap: 8px;
+  }
+
+  .sticky-header .mobile-menu {
+    display: none;
+  }
+}

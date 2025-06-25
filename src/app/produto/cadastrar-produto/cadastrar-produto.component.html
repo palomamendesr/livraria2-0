@@ -1,0 +1,46 @@
+<div class="form-container">
+  <mat-toolbar color="primary" class="form-header">
+    Cadastrar Produto
+  </mat-toolbar>
+
+  <form [formGroup]="form" class="form-content">
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Nome Produto</mat-label>
+      <input matInput formControlName="nome">
+      <mat-error *ngIf="form.get('nome')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+      <mat-error *ngIf="form.get('nome')?.hasError('minlength')">
+        Mínimo de 3 caracteres
+      </mat-error>
+      <mat-error *ngIf="form.get('nome')?.hasError('maxlength')">
+        Máximo de 20 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Informe o valor do Produto</mat-label>
+      <input matInput formControlName="valor">
+      <mat-error *ngIf="form.get('valor')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+      <mat-error *ngIf="form.get('valor')?.hasError('minlength')">
+        Mínimo de 3 caracteres
+      </mat-error>
+      <mat-error *ngIf="form.get('valor')?.hasError('maxlength')">
+        Máximo de 20 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-buttons">
+      <button mat-raised-button color="primary" (click)="cadastrarProduto()">
+        Salvar
+      </button>
+      <button mat-raised-button color="accent">
+        Voltar
+      </button>
+    </div>
+
+  </form>
+</div>

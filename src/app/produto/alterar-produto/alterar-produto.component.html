@@ -1,0 +1,46 @@
+<div class="form-container"> 
+  <mat-toolbar color="primary" class="form-header">
+    Alterar Produto
+  </mat-toolbar>
+
+  <form [formGroup]="formAlterar" class="form-content">
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Nome Produto</mat-label>
+      <input matInput formControlName="nome">
+      <mat-error *ngIf="formAlterar.get('nome')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+      <mat-error *ngIf="formAlterar.get('nome')?.hasError('minlength')">
+        Mínimo de 3 caracteres
+      </mat-error>
+      <mat-error *ngIf="formAlterar.get('nome')?.hasError('maxlength')">
+        Máximo de 20 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Informe o valor do Produto</mat-label>
+      <input matInput formControlName="valor">
+      <mat-error *ngIf="formAlterar.get('valor')?.hasError('required')">
+        Campo obrigatório
+      </mat-error>
+      <mat-error *ngIf="formAlterar.get('valor')?.hasError('minlength')">
+        Mínimo de 3 caracteres
+      </mat-error>
+      <mat-error *ngIf="formAlterar.get('valor')?.hasError('maxlength')">
+        Máximo de 20 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-buttons">
+      <button mat-raised-button color="primary" (click)="alterarProduto()">
+        Alterar Alterações
+      </button>
+      <button mat-raised-button color="accent" routerLink="/listar-produtos">
+        Voltar
+      </button>
+    </div>
+
+  </form>
+</div>

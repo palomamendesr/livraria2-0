@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="sticky-header">
+   <img src="../../../assets/c--4.svg" width="50px" style="margin-right: 20px;" alt="Logo" class="logo">
+  <span class="title">Livraria .Net</span>
+
+  <span class="spacer"></span>
+
+  <!-- Menu Desktop -->
+  <div class="desktop-menu">
+    <button mat-button color="accent">Home</button>
+    <button mat-button color="accent">Sobre</button>
+    <button mat-button color="accent">Serviços</button>
+    <button mat-button color="accent">Contato</button>
+  </div>
+
+  <!-- Menu Mobile -->
+  <button mat-icon-button class="mobile-menu" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item color="accent">Home</button>
+    <button mat-menu-item color="accent">Sobre</button>
+    <button mat-menu-item color="accent">Serviços</button>
+    <button mat-menu-item color="accent">Contato</button>
+  </mat-menu>
+</mat-toolbar>
