@@ -1,7 +1,5 @@
 
-
-
-<mat-card  class="mat-card" *ngIf="produto">
+<mat-card *ngIf="produto$ | async as produto; else loading">
   <mat-card-header>
     <mat-card-title>{{ produto.nome }}</mat-card-title>
   </mat-card-header>
@@ -12,3 +10,7 @@
         Voltar
     </button>
 </mat-card>
+<ng-template #loading>
+  <mat-spinner *ngIf="loading$ | async" diameter="50"></mat-spinner>
+  <p *ngIf="!(loading$ | async)">Produto não encontrado.</p>
+</ng-template>

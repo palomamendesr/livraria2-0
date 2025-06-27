@@ -42,7 +42,7 @@
             <button mat-icon-button color="primary" matTooltip="Visualizar" (click)="irParaVisualizarComId(produto.id)">
               <mat-icon>visibility</mat-icon>
             </button>
-            <button mat-icon-button color="accent" matTooltip="Editar" (click)="irParaAlterarComId(produto.id)">
+            <button mat-icon-button color="accent" matTooltip="Editar" (click)="irParaAlterarComId(produto.id, produto.nome, produto.valor)">
               <mat-icon>edit</mat-icon>
             </button>
             <button mat-icon-button color="warn" matTooltip="Excluir" (click)="deletarProduto(produto.id)">

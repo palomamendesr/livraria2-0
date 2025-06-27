@@ -3,7 +3,7 @@
     Cadastrar Produto
   </mat-toolbar>
 
-  <form [formGroup]="form" class="form-content">
+  <form [formGroup]="form" (ngSubmit)="cadastrarProduto()" class="form-content">
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Nome Produto</mat-label>
@@ -34,10 +34,17 @@
     </mat-form-field>
 
     <div class="form-buttons">
-      <button mat-raised-button color="primary" (click)="cadastrarProduto()">
-        Salvar
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || (criarProduto$ | async)">
+        <ng-container *ngIf="!(criarProduto$ | async); else spinner">Salvar</ng-container>
+        <ng-template #spinner>
+          <mat-progress-spinner
+            mode="indeterminate"
+            diameter="100"
+            class="button-spinner">
+          </mat-progress-spinner>
+        </ng-template>
       </button>
-      <button mat-raised-button color="accent">
+      <button mat-raised-button color="accent" routerLink="/listar-produtos">
         Voltar
       </button>
     </div>

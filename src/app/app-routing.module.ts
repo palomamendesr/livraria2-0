@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'listar-produtos', pathMatch: 'full' }, 
   { path: 'listar-produtos', component: ListarProdutoComponent },
   { path: 'cadastrar-produto', component: CadastrarProdutoComponent },
-  { path: 'alterar-produto/:idProduto', component: AlterarProdutoComponent },
-  { path: 'visualizar-produto/:idProduto', component: VisualizarProdutoComponent },
+  { path: 'alterar-produto/:id', component: AlterarProdutoComponent },
+  { path: 'visualizar-produto/:id', component: VisualizarProdutoComponent },
   { path:'excluir-produto/idProduto', component: ListarProdutoComponent }
 ];
 

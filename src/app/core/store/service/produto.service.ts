@@ -9,7 +9,6 @@ import { SaveUpdateProduto } from '../../models/save-update-produto.model';
   providedIn: 'root'
 })
 export class ProdutoService {
-
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
@@ -18,7 +17,7 @@ export class ProdutoService {
     return this.http.get<Produto[]>(`${this.apiUrl}produto`);
   }
 
-  getProdutoById(idProduto: string): Observable<Produto> {
+  getProdutoById(idProduto: number): Observable<Produto> {
     return this.http.get<Produto>(`${this.apiUrl}produto/${idProduto}`);
   }
 
@@ -26,7 +25,7 @@ export class ProdutoService {
     return this.http.post<Produto>(`${this.apiUrl}produto`, produto);
   }
 
-  alterarProduto(produto: SaveUpdateProduto, idproduto: any): Observable<Produto> {
+  alterarProduto(produto: SaveUpdateProduto, idproduto: number): Observable<Produto> {
     return this.http.put<Produto>(`${this.apiUrl}produto/${idproduto}`, produto);
   }
 

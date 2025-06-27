@@ -26,10 +26,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { provideStore } from '@ngrx/store';
+import { provideStore, StoreModule } from '@ngrx/store';
 import { produtoReducer } from './core/store/reducers/reducers.reducer';
-import { provideEffects } from '@ngrx/effects';
+import { EffectsModule, provideEffects } from '@ngrx/effects';
 import { ProdutoEffects } from './core/store/effects/produto.effects';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -59,7 +60,12 @@ import { ProdutoEffects } from './core/store/effects/produto.effects';
     MatCardModule,
     ReactiveFormsModule,
     ToastModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatProgressSpinnerModule,
+
+      //imports do NGRX
+    StoreModule.forRoot({}, {}),          // Inicializa o store global
+    EffectsModule.forRoot([]),            // Inicializa o Effects principal (mesmo se vazio)
   ],
   providers: [
     MessageService,

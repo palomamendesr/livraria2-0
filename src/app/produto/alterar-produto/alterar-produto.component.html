@@ -3,7 +3,7 @@
     Alterar Produto
   </mat-toolbar>
 
-  <form [formGroup]="formAlterar" class="form-content">
+  <form [formGroup]="formAlterar" (ngSubmit)="alterarProduto()" class="form-content">
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>Nome Produto</mat-label>
@@ -34,13 +34,21 @@
     </mat-form-field>
 
     <div class="form-buttons">
-      <button mat-raised-button color="primary" (click)="alterarProduto()">
-        Alterar Alterações
+      <button mat-raised-button color="primary" type="submit" [disabled]="formAlterar.invalid || (atualizarProduto$ | async)">
+        <ng-container *ngIf="!(atualizarProduto$ | async); else spinner">Alterar</ng-container>
+        <ng-template #spinner>
+          <mat-progress-spinner
+            mode="indeterminate"
+            diameter="100"
+            class="button-spinner">
+          </mat-progress-spinner>
+        </ng-template>
       </button>
       <button mat-raised-button color="accent" routerLink="/listar-produtos">
-        Voltar
+        Cancelar
       </button>
     </div>
+
 
   </form>
 </div>
